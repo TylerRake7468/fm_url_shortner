@@ -31,11 +31,13 @@ This is a Ruby on Rails API application for shortening URLs, managing their life
 POST  /api/v1/short_urls
 
 Single URL body:
+<pre> ```json
 {
 	"urls": ["https://instagram.com"]
-}
+} ``` </pre>
 
 Response:
+<pre> ```json
 {
     "data": [
         {
@@ -45,14 +47,16 @@ Response:
             "status": "created"
         }
     ]
-}
+} ``` </pre>
 
 Batch URL's body:
+<pre> ```json
 {
 	"urls": ["https://example1.com", "https://example2.com"]
-}
+} ``` </pre>
 
 Response:
+<pre> ```json
 {
     "data": [
         {
@@ -68,21 +72,22 @@ Response:
             "status": "created"
         }
     ]
-}
+} ``` </pre>
 
 ### 2. Deactivate Short URL
 PATCH /api/v1/short_urls/:id/deactivate
 
 Response:
+<pre> ```json
 {
     "message": "Short URL deactivated successfully"
-}
+} ``` </pre>
 
 OR
-
+<pre> ```json
 {
     "message": "Short URL is already deactivated"
-}
+} ``` </pre>
 
 
 ### 3. Redirect + Track Clicks
@@ -94,7 +99,7 @@ Redirects to the original URL and tracks the click.
 
 ### 4. Analytics
 GET   /api/v1/short_urls/analytics
-
+<pre> ```json
 [
     {
         "id": 4,
@@ -124,7 +129,7 @@ GET   /api/v1/short_urls/analytics
         "total_clicks": 0,
         "filtered_clicks": 0
     }
-]
+] ``` </pre>
 
 This API also accept multiple filters
 => start_date - beginning of date range
