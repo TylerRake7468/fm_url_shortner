@@ -30,6 +30,21 @@ class Api::V1::ShortUrlsController < ApplicationController
     render json: { data: results }, status: :created
   end
 
+  def deactivate
+	short_url = ShortUrl.find_by(id: params[:id])
+
+	unless short_url
+		return render json: { error: 'Short URL not found' }, status: :not_found
+	end
+
+	if short_url.active?
+		short_url.update(active: false)
+		render json: { message: 'Short URL deactivated successfully' }, status: :ok
+	else
+		render json: { message: 'Short URL is already deactivated' }, status: :ok
+	end
+  end
+
   private
 
   def short_url(code)
