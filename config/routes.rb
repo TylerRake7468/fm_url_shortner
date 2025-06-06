@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/:short_code', to: 'redirect#show', as: :redirect
+
 end

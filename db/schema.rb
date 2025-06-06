@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_06_144850) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_06_151833) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_06_144850) do
     t.datetime "clicked_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ip_address"
     t.index ["short_url_id"], name: "index_clicks_on_short_url_id"
   end
 
