@@ -1,7 +1,5 @@
 # URL Shortener API
 
-# URL Shortener API 🚀
-
 This is a Ruby on Rails API application for shortening URLs, managing their lifecycle, and tracking click analytics. It supports batch shortening, unique short code generation, deactivation, redirection, and timezone-aware analytics.
 
 ---
@@ -31,13 +29,13 @@ This is a Ruby on Rails API application for shortening URLs, managing their life
 POST  /api/v1/short_urls
 
 Single URL body:
-<pre> ```json
+<pre>
 {
 	"urls": ["https://instagram.com"]
-} ``` </pre>
+}</pre>
 
 Response:
-<pre> ```json
+<pre>
 {
     "data": [
         {
@@ -47,16 +45,16 @@ Response:
             "status": "created"
         }
     ]
-} ``` </pre>
+}</pre>
 
 Batch URL's body:
-<pre> ```json
+<pre>
 {
 	"urls": ["https://example1.com", "https://example2.com"]
-} ``` </pre>
+}</pre>
 
 Response:
-<pre> ```json
+<pre>
 {
     "data": [
         {
@@ -72,22 +70,22 @@ Response:
             "status": "created"
         }
     ]
-} ``` </pre>
+}</pre>
 
 ### 2. Deactivate Short URL
 PATCH /api/v1/short_urls/:id/deactivate
 
 Response:
-<pre> ```json
+<pre>
 {
     "message": "Short URL deactivated successfully"
-} ``` </pre>
+}</pre>
 
 OR
-<pre> ```json
+<pre>
 {
     "message": "Short URL is already deactivated"
-} ``` </pre>
+}</pre>
 
 
 ### 3. Redirect + Track Clicks
@@ -99,7 +97,7 @@ Redirects to the original URL and tracks the click.
 
 ### 4. Analytics
 GET   /api/v1/short_urls/analytics
-<pre> ```json
+<pre>
 [
     {
         "id": 4,
@@ -129,7 +127,7 @@ GET   /api/v1/short_urls/analytics
         "total_clicks": 0,
         "filtered_clicks": 0
     }
-] ``` </pre>
+]</pre>
 
 This API also accept multiple filters
 => start_date - beginning of date range
