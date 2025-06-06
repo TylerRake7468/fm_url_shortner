@@ -130,20 +130,20 @@ GET   /api/v1/short_urls/analytics
 ]</pre>
 
 This API also accept multiple filters
-=> start_date - beginning of date range
-=> end_date - end of date range
-=> timezone - timezone for the date range filtering, accepting both IANA identifiers (e.g “Europe/Paris”) and ISO 8601 offset (“+5:30”, “-08:00”, “Z”)
+- start_date - beginning of date range
+- end_date - end of date range
+- timezone - timezone for the date range filtering, accepting both IANA identifiers (e.g “Europe/Paris”) and ISO 8601 offset (“+5:30”, “-08:00”, “Z”)
 
 Examples: 
-=> GET /api/v1/short_urls/analytics
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01
-=> GET /api/v1/short_urls/analytics?end_date=2024-06-10
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=Asia/Kolkata
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=America/New_York
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=+05:30
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=-08:00
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=Z
-=> GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=Invalid/Zone
+- GET /api/v1/short_urls/analytics
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01
+- GET /api/v1/short_urls/analytics?end_date=2024-06-10
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=Asia/Kolkata
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=America/New_York
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=+05:30
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=-08:00
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=Z
+- GET /api/v1/short_urls/analytics?start_date=2024-06-01&end_date=2024-06-05&timezone=Invalid/Zone
 
 Based on these filters the inside response "filtered_clicks" will get change.  
 
@@ -181,31 +181,36 @@ Base62 encoding technique to generate short codes from integers (like database I
 Base = 62
 Number to encode = 123456789
 
-Step 1
+- Step 1:
+
 123456789 % 62 = 21
 → CHARACTERS[21] = 'v'
 
 123456789 / 62 = 1991246
 
-Step 2
+- Step 2:
+
 1991246 % 62 = 54
 → CHARACTERS[54] = '2'
 
 1991246 / 62 = 32113
 
-Step 3
+- Step 3:
+
 32113 % 62 = 7
 → CHARACTERS[7] = 'h'
 
 32113 / 62 = 518
 
-Step 4
+- Step 4:
+
 518 % 62 = 22
 → CHARACTERS[22] = 'w'
 
 518 / 62 = 8
 
-Step 5
+- Step 5:
+
 8 % 62 = 8
 → CHARACTERS[8] = 'i'
 
