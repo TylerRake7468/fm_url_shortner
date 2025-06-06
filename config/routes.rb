@@ -5,8 +5,11 @@ Rails.application.routes.draw do
         member do
           patch :deactivate
         end
+
+        collection do
+          get :analytics
+        end
       end
-      get '/short_urls/analytics', to: 'short_urls#analytics'
     end
   end
 
