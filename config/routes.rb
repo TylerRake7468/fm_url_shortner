@@ -6,6 +6,7 @@ Rails.application.routes.draw do
           patch :deactivate
         end
       end
+      get '/short_urls/analytics', to: 'short_urls#analytics'
     end
   end
 

@@ -9,6 +9,16 @@ class ShortUrl < ApplicationRecord
     update!(short_code: encode_base62(id))
   end
 
+  def clicks_in_range(start_date, end_date, timezone)
+    return clicks.none unless start_date && end_date
+
+    zone = timezone || Time.zone
+    start_time = zone.parse(start_date.to_s).beginning_of_day
+    end_time = zone.parse(end_date.to_s).end_of_day
+
+    clicks.where(clicked_at: start_time..end_time)
+  end
+
   private
 
   def encode_base62(num)
