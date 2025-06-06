@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  short_url: one
+  clicked_at: 2025-06-06 19:44:55
+
+two:
+  short_url: two
+  clicked_at: 2025-06-06 19:44:55
